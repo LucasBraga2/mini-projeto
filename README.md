@@ -1,5 +1,7 @@
 # mini-projeto
 
+Link do Vídeo: https://youtu.be/ALxkbOT5LEE
+
 Novas Funcionalidades (v1.1.1): CRUD de Filmes
 Esta versão introduz um CRUD (Create, Read, Update, Delete) completo para gerenciamento de filmes, totalmente integrado ao sistema de autenticação.
 
