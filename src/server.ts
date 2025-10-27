@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import connectDB from './database/config';
 import authRoutes from './routes/authRoutes';
+import movieRoutes from './routes/movieRoutes'; 
 
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +20,9 @@ connectDB();
 
 // --- Rotas ---
 app.use('/api', authRoutes);
+
+// Prefixa todas as rotas de filmes com /api
+app.use('/api', movieRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ status: 'API está online!' });
