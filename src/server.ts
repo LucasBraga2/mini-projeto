@@ -13,8 +13,8 @@ app.use(express.json());
 
 const allowedFrontends = [
   'http://localhost:5173',                        // Local
-  'https://mini-projeto-frontend-mongo.vercel.app', // frontend de produção (Mongo)
-\];
+  'https://mini-projeto-frontend-mongo.vercel.app' // frontend de produção (Mongo)
+];
 
 app.use(cors({
  origin: allowedFrontends
