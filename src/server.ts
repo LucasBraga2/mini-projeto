@@ -3,12 +3,17 @@ import express, { Application, Request, Response, NextFunction } from 'express';
 import connectDB from './database/config';
 import authRoutes from './routes/authRoutes';
 import movieRoutes from './routes/movieRoutes'; 
+import cors from 'cors'; 
 
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
 
 
 app.use(express.json());
+
+app.use(cors({
+  origin: 'http://localhost:5173' 
+}));
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
