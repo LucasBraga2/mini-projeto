@@ -11,9 +11,14 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+const allowedFrontends = [
+  'http://localhost:5173',                        // Local
+  'https://mini-projeto-frontend-mongo.vercel.app', // frontend de produção (Mongo)
+\];
+
 app.use(cors({
-  origin: 'http://localhost:5173' 
-}));
+ origin: allowedFrontends
+}));;
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
