@@ -37,6 +37,15 @@ const movieSchema = new Schema<IMovie>(
   },
   {
     timestamps: true, // Adiciona createdAt e updatedAt
+    toJSON: {
+      virtuals: true, // Garante que 'id' virtual seja incluído
+      transform: (doc, ret: { [key: string]: any }) => {
+        // 'ret' é o objeto JSON que será enviado
+        ret.id = ret._id;  // Copia o valor de _id para um novo campo 'id'
+        delete ret._id;    // Remove o campo _id original
+        delete ret.__v;   // Remove o campo de versão do Mongoose
+      },
+    },
   }
 );
 
